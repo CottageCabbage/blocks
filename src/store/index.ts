@@ -1,14 +1,18 @@
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia'
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
+export const useStore = defineStore('main', {
+  state: () => ({
+    blocksData: {}
+  }),
   actions: {
-  },
-  modules: {
+    getLocalStorageData () {
+      const blocksData = [{
+        title: "Get Started",
+        width: "350px",
+        height: "400px",
+        contents: "Hello there!"
+      }, {title: "Thing"}]
+      this.blocksData = blocksData
+    }
   }
 })
