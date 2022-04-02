@@ -1,7 +1,7 @@
 <template id="app">
   <HeaderComponent />
   <main>
-    <SidebarComponent />
+    <SidebarComponent v-if="$route.name === 'board'"/>
     <router-view/>
   </main>
 </template>
@@ -39,9 +39,6 @@ html, body, #app {
 main {
   display: flex;
   flex-direction: row;
-
-  height: 100%;
-
   background: #223;
 }
 </style>

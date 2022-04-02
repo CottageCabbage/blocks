@@ -1,14 +1,25 @@
 <template>
   <div class="boardItem" draggable="false">
     <div class="itemHeader">
-      <span>{{ data.title }}</span>
+      <span @click="renameBlock">
+        {{ data.title }}
+      </span>
       <span class="headerBtns">
-        <img src="@/assets/edit.svg" />
-        <img src="@/assets/x.svg" />
+        <img
+          src="@/assets/edit.svg"
+          @click="blockContentEditable = true"
+          v-if="blockContentEditable === false"
+        />
+        <img
+          src="@/assets/save.svg"
+          @click="saveEditedContents"
+          v-if="blockContentEditable === true"
+        />
+        <img src="@/assets/x.svg"/>
       </span>
     </div>
-    <div class="itemBody">
-      asd
+    <div class="itemBody" :contenteditable="blockContentEditable">
+      {{ data.contents }}
     </div>
   </div>
 </template>
@@ -21,7 +32,15 @@ export default defineComponent({
   props: ['data'],
   data () {
     return {
-
+      blockContentEditable: false
+    }
+  },
+  methods: {
+    saveEditedContents () {
+      this.blockContentEditable = false
+    },
+    renameBlock () {
+      console.log('placeholder')
     }
   }
 });
@@ -52,6 +71,8 @@ export default defineComponent({
 
   .itemBody {
     padding: 10px;
+    height: calc(100% - 30px);
+    outline: none;
     color: #eee;
   }
 }

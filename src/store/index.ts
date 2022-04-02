@@ -5,14 +5,18 @@ export const useStore = defineStore('main', {
     blocksData: {}
   }),
   actions: {
-    getLocalStorageData () {
+    setDefaults () {
       const blocksData = [{
         title: "Get Started",
         width: "350px",
         height: "400px",
         contents: "Hello there!"
-      }, {title: "Thing"}]
-      this.blocksData = blocksData
+      }]
+      localStorage.setItem('blocks', JSON.stringify(blocksData))
+      this.getLocalStorageData()
+    },
+    getLocalStorageData () {
+      this.blocksData = JSON.parse(localStorage.getItem('blocks') || '{}')
     }
   }
 })

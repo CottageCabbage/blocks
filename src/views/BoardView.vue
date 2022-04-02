@@ -26,7 +26,13 @@ export default defineComponent({
     }
   },
   mounted () {
-    this.store.getLocalStorageData()
+    if (localStorage.getItem('blocks') === null) {
+      this.store.setDefaults()
+    } else {
+      this.store.getLocalStorageData()
+    }
+
+    document.addEventListener("storage", this.store.getLocalStorageData)
   }
 });
 </script>
@@ -36,6 +42,7 @@ export default defineComponent({
   width: calc(100% - 250px);
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: 20px;
 }

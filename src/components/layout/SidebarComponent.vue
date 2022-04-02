@@ -1,6 +1,5 @@
 <template>
   <aside>
-    <h2>Your Blocks:</h2>
     <div class="blockList">
       <div
         v-for="(block, index) in store.blocksData"
@@ -29,7 +28,12 @@ export default defineComponent({
 
 <style lang="scss">
 aside {
-  height: 100%;
+  position: sticky !important;
+  position: -webkit-sticky;
+  // left: 0 !important;
+  bottom: 0 !important;
+
+  height: 100vh;
   width: 250px;
   padding: 10px;
   background: #111;
