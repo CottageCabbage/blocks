@@ -1,15 +1,16 @@
 import { defineStore } from 'pinia'
+// import { nanoid } from 'nanoid'
 
 export const useStore = defineStore('main', {
   state: () => ({
-    blocksData: {}
+    blocksData: Object ({})
   }),
   actions: {
     setDefaults () {
       const blocksData = [{
         title: "Get Started",
-        width: "350px",
-        height: "400px",
+        // id: nanoid()
+        id: "default",
         contents: "Hello there!"
       }]
       localStorage.setItem('blocks', JSON.stringify(blocksData))
@@ -17,6 +18,9 @@ export const useStore = defineStore('main', {
     },
     getLocalStorageData () {
       this.blocksData = JSON.parse(localStorage.getItem('blocks') || '{}')
+    },
+    createNewBlock () {
+      console.log('hello')
     }
   }
 })

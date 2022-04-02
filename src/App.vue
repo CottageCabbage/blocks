@@ -20,7 +20,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://api.fonts.coollabs.io/css2?family=Montserrat&family=Roboto&display=swap');
 
 * {box-sizing: border-box; margin: 0; padding: 0;}
@@ -39,6 +39,11 @@ html, body, #app {
 main {
   display: flex;
   flex-direction: row;
-  background: #223;
+  background: #222;
+
+  aside {
+    position: sticky;
+    top: 0;
+  }
 }
 </style>

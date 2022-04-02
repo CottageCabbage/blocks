@@ -28,11 +28,6 @@ export default defineComponent({
 
 <style lang="scss">
 aside {
-  position: sticky !important;
-  position: -webkit-sticky;
-  // left: 0 !important;
-  bottom: 0 !important;
-
   height: 100vh;
   width: 250px;
   padding: 10px;

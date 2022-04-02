@@ -1,11 +1,10 @@
 <template>
   <div class="board">
     <BoardItem
-      v-for="(block, index) in store.blocksData"
-      :key="index"
+      v-for="block in store.blocksData"
+      :key="block.id"
       :data="block"
     />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
   </div>
 </template>
 
@@ -30,6 +29,7 @@ export default defineComponent({
       this.store.setDefaults()
     } else {
       this.store.getLocalStorageData()
+      this.store = useStore()
     }
 
     document.addEventListener("storage", this.store.getLocalStorageData)
@@ -39,6 +39,9 @@ export default defineComponent({
 
 <style scoped>
 .board {
+  margin: 0;
+  padding: 0;
+  border: none;
   width: calc(100% - 250px);
   display: flex;
   justify-content: center;

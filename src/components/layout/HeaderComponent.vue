@@ -19,6 +19,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { nanoid } from 'nanoid'
 
 export default defineComponent({
   name: 'HeaderComponent',
@@ -33,6 +34,7 @@ export default defineComponent({
         const data = JSON.parse(localStorage.getItem('blocks') || '{}')
         const newBlock = {
           title: String (this.newBlockTitle),
+          id: nanoid(),
           contents: String ('Edit this, I dare you.')
         }
         data.push(newBlock)
@@ -52,7 +54,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background: #000;
-  border-bottom: 1px solid #6669;
+  // border-bottom: 1px solid #6669;
 
   #logo {
     font-size: 1.5rem;
